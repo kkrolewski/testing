@@ -21,7 +21,7 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
         sendEmergencyMessage("test");
     }
 
-    public void sendEmergencyMessage(String message) throws IOException {
+    public static void sendEmergencyMessage(String message) throws IOException {
         for (WebSocketSession session : sessions) {
             try {
                 session.sendMessage(new TextMessage(message));

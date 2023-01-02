@@ -9,13 +9,12 @@ import java.io.IOException;
 
 @RestController
 public class EspController {
-    WebSocketHandler webSocketHandler;
 
     @PostMapping("/emergencyCall")
     public void receiveCall(@RequestBody String body){
         System.out.println("dostalem zgloszenie od "+ body);
         try{
-        webSocketHandler.sendEmergencyMessage("dostale zglosznie od " + body);}
+        WebSocketHandler.sendEmergencyMessage("dostale zglosznie od " + body);}
         catch(IOException e){
             System.out.println("error");
         }
