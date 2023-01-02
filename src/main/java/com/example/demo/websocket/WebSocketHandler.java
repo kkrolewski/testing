@@ -18,6 +18,7 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
         String msg = String.valueOf(message.getPayload());
         // Send back unique message depending on the id received from the client
         System.out.println(msg);
+        sendEmergencyMessage("test");
     }
 
     public void sendEmergencyMessage(String message) throws IOException {
