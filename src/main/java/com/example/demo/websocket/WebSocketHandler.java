@@ -15,8 +15,4 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
         System.out.println(msg);
     }
 
-    @SendTo("/websocket")
-    public String sendNotificationAboutEmergency(){
-    return "wiadomosc";
-    }
 }

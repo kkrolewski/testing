@@ -12,6 +12,6 @@ public class EspController {
     @PostMapping("/emergencyCall")
     public void receiveCall(@RequestBody String body){
         System.out.println("dostalem zgloszenie od "+ body);
-        webSocketHandler.sendNotificationAboutEmergency();
+
     }
 }
