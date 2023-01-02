@@ -16,7 +16,7 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
     }
 
     @SendTo("/websocket")
-    public void sendNotificationAboutEmergency(){
-
+    public String sendNotificationAboutEmergency(){
+    return "wiadomosc";
     }
 }
