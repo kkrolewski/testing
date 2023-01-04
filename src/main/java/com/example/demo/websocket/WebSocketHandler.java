@@ -2,6 +2,7 @@ package com.example.demo.websocket;
 
 import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -35,6 +36,10 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
         sessions.add(session);
     }
 
+    @Override
+    public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception {
+        sessions.remove(session);
+    }
 
 
 }
