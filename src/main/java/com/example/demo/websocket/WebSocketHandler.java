@@ -13,16 +13,28 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 public class WebSocketHandler extends AbstractWebSocketHandler {
 
-    private static Set<WebSocketSession> sessions = new CopyOnWriteArraySet<>();
+    private static final Set<WebSocketSession> sessions = new CopyOnWriteArraySet<>();
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws IOException {
         String msg = String.valueOf(message.getPayload());
         // Send back unique message depending on the id received from the client
-        System.out.println(msg);
-        sendEmergencyMessage("test");
+        if(msg.startsWith("Accepted")){
+            cancelEmergency(msg);
+        }
+
     }
 
     public static void sendEmergencyMessage(String message) throws IOException {
+        for (WebSocketSession session : sessions) {
+            try {
+                session.sendMessage(new TextMessage(message));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void cancelEmergency(String message) throws IOException {
         for (WebSocketSession session : sessions) {
             try {
                 session.sendMessage(new TextMessage(message));

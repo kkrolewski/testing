@@ -12,11 +12,12 @@ public class EspController {
 
     @PostMapping("/emergencyCall")
     public void receiveCall(@RequestBody String body){
-        System.out.println("dostalem zgloszenie od "+ body);
+        System.out.println("Received call from "+ body);
         try{
-        WebSocketHandler.sendEmergencyMessage("dostale zglosznie od " + body);}
+        WebSocketHandler.sendEmergencyMessage("Received call from " + body);}
         catch(IOException e){
             System.out.println("error");
         }
     }
+
 }
