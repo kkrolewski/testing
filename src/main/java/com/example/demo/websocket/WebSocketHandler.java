@@ -21,7 +21,6 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
         if(msg.startsWith("Accepted")){
             cancelEmergency(msg);
         }
-
     }
 
     public static void sendEmergencyMessage(String message) throws IOException {
@@ -32,6 +31,7 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
                 e.printStackTrace();
             }
         }
+        System.out.println(message);
     }
 
     public static void cancelEmergency(String message) throws IOException {
@@ -42,15 +42,18 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
                 e.printStackTrace();
             }
         }
+        System.out.println(message);
     }
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         sessions.add(session);
+        System.out.println("Connected with session id: " + session.getId());
     }
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception {
         sessions.remove(session);
+        System.out.println("Disconnected with session id: " + session.getId());
     }
 
 
