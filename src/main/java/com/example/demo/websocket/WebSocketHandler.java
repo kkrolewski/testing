@@ -31,7 +31,6 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
                 e.printStackTrace();
             }
         }
-        System.out.println(message);
     }
 
     public static void cancelEmergency(String message) throws IOException {
