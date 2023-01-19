@@ -1,10 +1,10 @@
-package com.kkrolewki.server;
+package com.example.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ServerControllerTests {
+class DemoApplicationTests {
 
     @Test
     void contextLoads() {

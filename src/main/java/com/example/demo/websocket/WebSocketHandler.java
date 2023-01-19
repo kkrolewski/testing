@@ -1,8 +1,10 @@
-package com.kkrolewki.server.websocket;
+package com.example.demo.websocket;
 
-
+import org.springframework.messaging.Message;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 import java.io.IOException;
@@ -30,7 +32,6 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
                 e.printStackTrace();
             }
         }
-        System.out.println(message);
     }
 
     public static void cancelEmergency(String message) throws IOException {
@@ -41,7 +42,6 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
                 e.printStackTrace();
             }
         }
-        System.out.println(message);
     }
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
